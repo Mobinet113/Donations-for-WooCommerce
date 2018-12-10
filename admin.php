@@ -19,6 +19,19 @@ echo('
 						</label>
 					</td>
 				</tr>
+				
+				<tr valign="top">
+					<th scope="row">
+						<label>'.__('UK Giftaid', 'donations-for-woocommerce').':</label>
+					</th>
+					<td>
+						<label>
+							<input type="checkbox" name="enable_uk_giftaid_field"'.(hm_wcdon_get_option('enable_uk_giftaid_field') ? ' checked="checked"' : '').' />
+							'.__('Enable UK Giftaid checkbox field in checkout', 'donations-for-woocommerce').'
+						</label>
+					</td>
+				</tr>
+				
 				<tr valign="top">
 					<th colspan="2">
 						<button type="submit" class="button-primary">'.__('Save Settings', 'donations-for-woocommerce').'</button>

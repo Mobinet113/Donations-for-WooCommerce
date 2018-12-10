@@ -14,7 +14,7 @@
 /**
  * Add Giftaid option on checkout
  */
-require( __DIR__ . '/inc/dfw-giftaid.php' );
+require(__DIR__ . '/inc/dfw-giftaid.php');
 
 // Add Instructions link in plugins list
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'hm_wcdon_action_links');
@@ -35,7 +35,11 @@ function hm_wcdon_admin_menu()
 function hm_wcdon_admin_page()
 {
   if (!empty($_POST)) {
-    $checkboxFields = array('disable_cart_amount_field');
+    $checkboxFields = array(
+      'disable_cart_amount_field',
+      'enable_uk_giftaid_field'
+    );
+
     foreach ($checkboxFields as $cbField) {
       $_POST[$cbField] = (empty($_POST[$cbField]) ? 0 : 1);
     }
@@ -64,7 +68,7 @@ function hm_wcdon_before_add_to_cart_button()
   if ($product->get_type() == 'donation') {
     echo('<div class="wc-donation-amount">
 				<label for="donation_amount_field">' . __('Amount', 'donations-for-woocommerce') . ':</label>
-				 '.get_woocommerce_currency_symbol().' <input type="number" name="donation_amount" id="donation_amount_field" size="5" min="0" step="' . $product->get_donation_amount_increment() . '" value="' . number_format($product->get_price(), 2, '.', '') . '" class="input-text text" />
+				 ' . get_woocommerce_currency_symbol() . ' <input type="number" name="donation_amount" id="donation_amount_field" size="5" min="0" step="' . $product->get_donation_amount_increment() . '" value="' . number_format($product->get_price(), 2, '.', '') . '" class="input-text text" />
 			</div>');
   }
 }
@@ -98,6 +102,7 @@ function hm_wcdon_plugins_loaded()
 
   // Create Donation product
   if (class_exists('WC_Product_Simple')) {
+
     class WC_Product_Donation extends WC_Product_Simple
     {
       private $donationAmount = 0, $donationAmountIncrement;
@@ -159,6 +164,7 @@ function hm_wcdon_plugins_loaded()
         return get_permalink($this->id);
       }
     }
+
   }
 }
 
@@ -255,7 +261,8 @@ function hm_wcdon_default_options()
   global $hm_wcdon_default_options;
   if (!isset($hm_wcdon_default_options)) {
     $hm_wcdon_default_options = array(
-      'disable_cart_amount_field' => 0
+      'disable_cart_amount_field' => 0,
+      'enable_uk_giftaid_field' => 0
     );
   }
   return $hm_wcdon_default_options;
