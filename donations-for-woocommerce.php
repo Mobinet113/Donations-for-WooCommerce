@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Potent Donations for WooCommerce
  * Description: Easily accept donations of varying amounts through your WooCommerce store.
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Potent Plugins
  * Author URI: http://potentplugins.com/?utm_source=donations-for-woocommerce&utm_medium=link&utm_campaign=wp-plugin-author-uri
  * License: GNU General Public License version 2 or later
@@ -10,6 +10,11 @@
  * Text Domain: donations-for-woocommerce
  * Domain Path: /lang
  */
+
+/**
+ * Add Giftaid option on checkout
+ */
+require( __DIR__ . '/inc/dfw-giftaid.php' );
 
 // Add Instructions link in plugins list
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'hm_wcdon_action_links');

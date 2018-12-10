@@ -1,9 +1,9 @@
 === Potent Donations for WooCommerce ===
-Contributors: hearken
+Contributors: hearken, mobinet
 Donate link: https://potentplugins.com/donate/?utm_source=donations-for-woocommerce&utm_medium=link&utm_campaign=wp-plugin-readme-donate-link
 Tags: woocommerce, donations, donation, donate, fundraising, giving, charity, non-profit, nonprofit, ecommerce
 Requires at least: 3.5
-Tested up to: 4.8
+Tested up to: 5
 Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
