@@ -13,10 +13,11 @@ add_filter( 'woocommerce_checkout_fields' , 'add_giftaid_field', 100 );
 function add_giftaid_field( $fields ) {
   global $woocommerce;
 
+  // Get the cart contents
   $items = $woocommerce->cart->get_cart();
   $isDonation = false;
 
-
+  // Check to see if a donation item is in the cart
   foreach ( $items as $item ) {
     if ( $item['data']->product_type === 'donation' ) {
       $isDonation = true;
@@ -24,7 +25,8 @@ function add_giftaid_field( $fields ) {
     }
   }
 
-  // If the UK Giftaid setting is enabled, create a new checkbox in the checkout
+  // If there is a donation item in the cart AND
+  // the UK Giftaid setting is enabled, create a new checkbox in the checkout
   if ( $isDonation && hm_wcdon_get_option('enable_uk_giftaid_field') ) {
     $fields['billing']['giftaid'] = array(
       'type'  => 'checkbox',
