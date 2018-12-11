@@ -6,20 +6,22 @@
   max-width: 120px;
 }
 
-.wc-donation-giftaid {
-  padding: 11px 0;
+.wc-donation-giftaid.form-row {
+  padding-top: 20px;
 }
 
 .wc-donation-giftaid label {
   padding-left: 20px;
   cursor: pointer;
+  font-size: 30px;
+  font-weight: 100;
 }
 
 .wc-donation-giftaid input:before {
   content: "";
   width: 40px;
   height: 40px;
-  top: 0;
+  top: -13px;
   left: -20px;
   border: 2px solid lightGrey;
   text-align: center;
