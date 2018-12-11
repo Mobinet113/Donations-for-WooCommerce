@@ -228,6 +228,7 @@ function hm_wcdon_get_cart_item_from_session($session_data)
 
 // Add the donation amount field to the cart display
 add_filter('woocommerce_cart_item_price', 'hm_wcdon_cart_item_price', 10, 3);
+
 function hm_wcdon_cart_item_price($price, $cart_item, $cart_item_key)
 {
   return (($cart_item['data']->get_type() == 'donation' && !hm_wcdon_get_option('disable_cart_amount_field')) ?
@@ -310,6 +311,7 @@ if (is_admin() && get_option('hm_wcdon_rd_notice_hidden') != 1 && time() - get_o
   add_action('admin_notices', 'hm_wcdon_rd_notice');
   add_action('wp_ajax_hm_wcdon_rd_notice_hide', 'hm_wcdon_rd_notice_hide');
 }
+
 function hm_wcdon_rd_notice()
 {
   $pre = 'hm_wcdon';
